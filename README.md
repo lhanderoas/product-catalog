@@ -1,16 +1,20 @@
-# React + Vite
+# CvSU Mini Store (Product Catalog)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A mini product catalog built with React and Vite for DCIT26 Laboratory Exercise 3.
 
-Currently, two official plugins are available:
+## Guide Questions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**1. What is the difference between props and state?**
+Props are data that a parent gives to a child component. State is data that a component keeps and can change by itself.
 
-## React Compiler
+**2. Why can a child component not modify the props it receives?**
+Props are read-only. The data belongs to the parent, so only the parent can change it. This keeps the data flow clear and predictable.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**3. How does the onAddToCart callback allow data to flow from child to parent?**
+The parent passes a function down as a prop. When the button is clicked, the child calls that function and gives it the product title. The function runs in the parent, so the parent receives the data.
 
-## Expanding the Oxlint configuration
+**4. Why is the key prop required when rendering a list with .map()?**
+React uses the key to identify each item in the list. If keys are missing or duplicated, React can mix up items, show warnings, and display wrong content when the list updates.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+**5. What does the children prop allow you to do that a normal prop does not?**
+It lets you place your own content, such as a badge or other elements, between the opening and closing tags of a component, instead of passing a single value.
